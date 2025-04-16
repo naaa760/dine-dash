@@ -170,11 +170,9 @@ export default function Home() {
         <div className={styles.awards}>
           <div className={styles.award}>
             <div className={styles.awardLogo}></div>
-            <span className={styles.awardYear}>2025</span>
           </div>
           <div className={styles.award}>
             <div className={styles.awardLogo}></div>
-            <span className={styles.awardYear}>2025</span>
           </div>
           <div className={styles.award}>
             <div className={styles.rating}>
