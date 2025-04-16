@@ -8,11 +8,97 @@ export default function Home() {
   const videoRef = useRef(null);
 
   useEffect(() => {
+    // Video autoplay
     if (videoRef.current) {
       videoRef.current.play().catch((error) => {
         console.log("Auto-play was prevented:", error);
       });
     }
+
+    // Gallery scroll animation
+    const handleScroll = () => {
+      const gallerySection = document.querySelector(
+        `.${styles.immersiveGallery}`
+      );
+      if (!gallerySection) return;
+
+      const sectionTop = gallerySection.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      // Start animation when the section is 20% in view
+      if (sectionTop < windowHeight * 0.8) {
+        gallerySection.classList.add("animate");
+      } else {
+        gallerySection.classList.remove("animate");
+      }
+
+      // Calculate scroll progress within the section
+      const sectionHeight = gallerySection.offsetHeight;
+      const scrollPosition = window.scrollY;
+      const sectionOffset = gallerySection.offsetTop;
+      const scrollProgress = (scrollPosition - sectionOffset) / sectionHeight;
+
+      // Apply different transformations based on scroll progress
+      if (scrollProgress >= 0 && scrollProgress <= 1) {
+        const images = document.querySelectorAll(`.${styles.galleryImage}`);
+
+        images.forEach((image, index) => {
+          // Customize the movement for each image
+          const delay = index * 0.1; // Stagger the animations
+          const progress = Math.max(
+            0,
+            Math.min(1, (scrollProgress - delay) * 2)
+          );
+
+          // Apply custom transformations based on progress
+          if (image.id === "galleryImage1") {
+            image.style.opacity = progress;
+            const translateX = -120 * progress;
+            const translateY = -60 * progress;
+            const scale = 0.8 + 0.2 * progress;
+            image.style.transform = `translate(${translateX}%, ${translateY}%) scale(${scale})`;
+          } else if (image.id === "galleryImage2") {
+            image.style.opacity = progress;
+            const translateX = -40 * progress;
+            const translateY = -80 * progress;
+            const scale = 0.8 + 0.3 * progress;
+            image.style.transform = `translate(${translateX}%, ${translateY}%) scale(${scale})`;
+          } else if (image.id === "galleryImage3") {
+            image.style.opacity = progress;
+            const translateX = 40 * progress;
+            const translateY = -60 * progress;
+            const scale = 0.8 + 0.1 * progress;
+            image.style.transform = `translate(${translateX}%, ${translateY}%) scale(${scale})`;
+          } else if (image.id === "galleryImage4") {
+            image.style.opacity = progress;
+            const translateX = -80 * progress;
+            const translateY = 20 * progress;
+            const scale = 0.8 + 0.05 * progress;
+            image.style.transform = `translate(${translateX}%, ${translateY}%) scale(${scale})`;
+          } else if (image.id === "galleryImage5") {
+            image.style.opacity = progress;
+            const translateX = 0;
+            const translateY = 40 * progress;
+            const scale = 0.8 + 0.4 * progress;
+            image.style.transform = `translate(${translateX}%, ${translateY}%) scale(${scale})`;
+          } else if (image.id === "galleryImage6") {
+            image.style.opacity = progress;
+            const translateX = 80 * progress;
+            const translateY = 10 * progress;
+            const scale = 0.8 + 0.15 * progress;
+            image.style.transform = `translate(${translateX}%, ${translateY}%) scale(${scale})`;
+          }
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Trigger once on load
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -190,6 +276,61 @@ export default function Home() {
             passion, crafted from an inspiring journey.
           </p>
           <div className={styles.exquisiteButton}>LEARN MORE</div>
+        </div>
+      </section>
+
+      {/* Immersive Gallery Section */}
+      <section className={styles.immersiveGallery}>
+        <div className={styles.galleryContainer}>
+          <div className={styles.galleryHeading}>
+            <h2>IMMERSIVE DINING EXPERIENCE</h2>
+            <p>Discover the perfect blend of ambiance and culinary artistry</p>
+          </div>
+          <div className={styles.galleryImages}>
+            <div className={styles.galleryImage} id="galleryImage1">
+              <Image
+                src="/ts1.jpg"
+                alt="Interior Design"
+                width={400}
+                height={500}
+              />
+            </div>
+            <div className={styles.galleryImage} id="galleryImage2">
+              <Image
+                src="/ts2.jpg"
+                alt="Dining Area"
+                width={400}
+                height={500}
+              />
+            </div>
+            <div className={styles.galleryImage} id="galleryImage3">
+              <Image
+                src="/ts3.jpg"
+                alt="Lounge Space"
+                width={400}
+                height={500}
+              />
+            </div>
+            <div className={styles.galleryImage} id="galleryImage4">
+              <Image src="/ts4.jpg" alt="Bar Area" width={400} height={500} />
+            </div>
+            <div className={styles.galleryImage} id="galleryImage5">
+              <Image
+                src="/ts5.jpg"
+                alt="Private Dining"
+                width={400}
+                height={500}
+              />
+            </div>
+            <div className={styles.galleryImage} id="galleryImage6">
+              <Image
+                src="/t6.jpg"
+                alt="Outdoor Seating"
+                width={400}
+                height={500}
+              />
+            </div>
+          </div>
         </div>
       </section>
     </div>
