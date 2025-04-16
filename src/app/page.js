@@ -284,50 +284,88 @@ export default function Home() {
         <div className={styles.galleryContainer}>
           <div className={styles.galleryHeading}>
             <h2>IMMERSIVE DINING EXPERIENCE</h2>
-            <p>Discover the perfect blend of ambiance and culinary artistry</p>
+            <p>
+              Discover the perfect blend of ambiance and culinary artistry in
+              our thoughtfully designed spaces
+            </p>
           </div>
           <div className={styles.galleryImages}>
-            <div className={styles.galleryImage} id="galleryImage1">
+            <div
+              className={styles.galleryImage}
+              id="galleryImage1"
+              data-caption="Elegant Main Dining"
+            >
               <Image
                 src="/ts1.jpg"
                 alt="Interior Design"
                 width={400}
                 height={500}
+                priority
               />
             </div>
-            <div className={styles.galleryImage} id="galleryImage2">
+            <div
+              className={styles.galleryImage}
+              id="galleryImage2"
+              data-caption="Private Lounge"
+            >
               <Image
                 src="/ts2.jpg"
                 alt="Dining Area"
                 width={400}
                 height={500}
+                priority
               />
             </div>
-            <div className={styles.galleryImage} id="galleryImage3">
+            <div
+              className={styles.galleryImage}
+              id="galleryImage3"
+              data-caption="Chef's Table"
+            >
               <Image
                 src="/ts3.jpg"
                 alt="Lounge Space"
                 width={400}
                 height={500}
+                priority
               />
             </div>
-            <div className={styles.galleryImage} id="galleryImage4">
-              <Image src="/ts4.jpg" alt="Bar Area" width={400} height={500} />
+            <div
+              className={styles.galleryImage}
+              id="galleryImage4"
+              data-caption="Cocktail Bar"
+            >
+              <Image
+                src="/ts4.jpg"
+                alt="Bar Area"
+                width={400}
+                height={500}
+                priority
+              />
             </div>
-            <div className={styles.galleryImage} id="galleryImage5">
+            <div
+              className={styles.galleryImage}
+              id="galleryImage5"
+              data-caption="Signature Experience"
+            >
               <Image
                 src="/ts5.jpg"
                 alt="Private Dining"
                 width={400}
                 height={500}
+                priority
               />
             </div>
-            <div className={styles.galleryImage} id="galleryImage6">
+            <div
+              className={styles.galleryImage}
+              id="galleryImage6"
+              data-caption="Outdoor Terrace"
+            >
               <Image
                 src="/t6.jpg"
                 alt="Outdoor Seating"
                 width={400}
                 height={500}
+                priority
               />
             </div>
           </div>
