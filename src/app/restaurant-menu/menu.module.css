@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
+.menuPage {
+  min-height: 100vh;
+  background-color: #f9f6f0;
+  color: #333;
+  padding: 40px 0;
+}
+
+.menuContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Menu Navigation */
+.menuNav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.menuTab {
+  padding: 12px 24px;
+  background-color: #f5f1e8;
+  color: #c9a77c;
+  border: none;
+  cursor: pointer;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.menuTab:hover {
+  background-color: #efe8d9;
+}
+
+.menuTab.active {
+  background-color: #c9a77c;
+  color: white;
+}
+
+/* Menu Content */
+.menuContent {
+  display: none;
+}
+
+.menuContent.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menuSection {
+  display: flex;
+  position: relative;
+  min-height: 600px;
+}
+
+.menuSideLabel {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  color: #c9a77c;
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  z-index: 1;
+}
+
+.menuItems {
+  flex: 1;
+  padding: 0 20px 0 80px;
+  z-index: 2;
+}
+
+.menuItem {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.menuItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.menuItemHeader::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #c9a77c;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.menuItemName {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #c9a77c;
+  margin: 0;
+  padding-right: 10px;
+  background-color: #f9f6f0;
+}
+
+.menuItemPrice {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  color: #c9a77c;
+  background-color: #f9f6f0;
+  padding-left: 10px;
+}
+
+.menuItemDescription {
+  color: #777;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.menuImage {
+  flex: 0 0 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuImage img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Back to Home Button */
+.backToHome {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.backButton {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #c9a77c;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background-color: #b89569;
+  transform: translateY(-3px);
+}
+
+/* Made with Badge */
+.madeWith {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .menuSection {
+    flex-direction: column;
+  }
+
+  .menuSideLabel {
+    writing-mode: horizontal-tb;
+    transform: none;
+    position: relative;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 30px;
+    left: auto;
+    top: auto;
+  }
+
+  .menuItems {
+    padding: 0;
+  }
+
+  .menuImage {
+    margin-top: 40px;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .menuNav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menuTab {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menuItemName,
+  .menuItemPrice {
+    font-size: 1.2rem;
+  }
+}

@@ -135,7 +135,7 @@ export default function Home() {
         </div>
 
         <div className={styles.menuCategories}>
-          <div className={styles.categoryCard}>
+          <Link href="/restaurant-menu#drink" className={styles.categoryCard}>
             <div className={styles.categoryImageContainer}>
               <Image
                 src="/fo1.jpg"
@@ -145,9 +145,9 @@ export default function Home() {
               />
             </div>
             <div className={styles.categoryLabel}>Drink</div>
-          </div>
+          </Link>
 
-          <div className={styles.categoryCard}>
+          <Link href="/restaurant-menu#main" className={styles.categoryCard}>
             <div className={styles.categoryImageContainer}>
               <Image
                 src="/fo2.jpg"
@@ -157,9 +157,12 @@ export default function Home() {
               />
             </div>
             <div className={styles.categoryLabel}>Main</div>
-          </div>
+          </Link>
 
-          <div className={styles.categoryCard}>
+          <Link
+            href="/restaurant-menu#desserts"
+            className={styles.categoryCard}
+          >
             <div className={styles.categoryImageContainer}>
               <Image
                 src="/fo3.jpg"
@@ -169,7 +172,7 @@ export default function Home() {
               />
             </div>
             <div className={styles.categoryLabel}>Desserts</div>
-          </div>
+          </Link>
         </div>
       </section>
     </div>
