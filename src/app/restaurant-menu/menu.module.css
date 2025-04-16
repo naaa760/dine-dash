@@ -306,6 +306,25 @@
   justify-content: center;
   margin-bottom: 50px;
   overflow: hidden;
+  background-image: url("/girl.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add a dark overlay to ensure text readability */
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 1;
 }
 
 .heroContent {
