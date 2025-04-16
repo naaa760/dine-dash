@@ -2,13 +2,27 @@
 
 .menuPage {
   min-height: 100vh;
-  background-image: url("/rest.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/rest.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #333;
   padding: 40px 0;
   position: relative;
+  animation: backgroundShimmer 30s infinite alternate;
+}
+
+@keyframes backgroundShimmer {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background-color: rgba(201, 167, 124, 0.1);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
 }
 
 /* Remove the overlay completely */
@@ -28,30 +42,74 @@
 .menuNav {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 50px;
+  gap: 15px;
+  margin-bottom: 60px;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .menuTab {
-  padding: 12px 24px;
-  background-color: rgba(245, 241, 232, 0.85);
+  padding: 15px 30px;
+  background: linear-gradient(
+      135deg,
+      rgba(245, 241, 232, 0.85),
+      rgba(245, 241, 232, 0.75)
+    ),
+    url("/treee.jpg");
+  background-size: cover;
+  background-position: center;
   color: #c9a77c;
   border: none;
   cursor: pointer;
   font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
   text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.menuTab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.menuTab:hover::before {
+  left: 100%;
 }
 
 .menuTab:hover {
   background-color: rgba(239, 232, 217, 0.95);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .menuTab.active {
-  background-color: rgba(201, 167, 124, 0.9);
+  background: linear-gradient(
+      135deg,
+      rgba(201, 167, 124, 0.9),
+      rgba(201, 167, 124, 0.8)
+    ),
+    url("/treee.jpg");
+  background-size: cover;
+  background-position: center;
   color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(201, 167, 124, 0.4);
 }
 
 /* Menu Content */
@@ -61,11 +119,21 @@
 
 .menuContent.active {
   display: block;
-  animation: fadeIn 0.5s ease;
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease;
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url("/treee.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transform: translateZ(0);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 @keyframes fadeIn {
@@ -137,7 +205,7 @@
   margin: 0;
   padding-right: 10px;
   background-color: transparent;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
 }
 
 .menuItemPrice {
@@ -146,44 +214,45 @@
   color: #a67c4e;
   background-color: transparent;
   padding-left: 10px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .menuItemDescription {
   color: #555;
   font-size: 1rem;
   margin: 0;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .menuImage {
-  flex: 0 0 400px;
+  flex: 0 0 450px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: translateZ(0);
 }
 
 .menuImage:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(201, 167, 124, 0.4);
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(201, 167, 124, 0.5);
 }
 
 .menuImage img {
   object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.8s ease, filter 0.5s ease;
+  border-radius: 15px;
+  transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.5s ease;
   width: 100%;
   height: 100%;
 }
 
 .menuImage:hover img {
-  transform: scale(1.05);
-  filter: brightness(1.1) contrast(1.1);
+  transform: scale(1.1);
+  filter: brightness(1.2) contrast(1.1) saturate(1.2);
 }
 
 /* Add a subtle overlay on hover */
@@ -217,17 +286,44 @@
 
 .backButton {
   display: inline-block;
-  padding: 12px 24px;
-  background-color: #c9a77c;
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #c9a77c, #b38d5e);
   color: white;
   text-decoration: none;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 25px rgba(201, 167, 124, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.backButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.backButton:hover::before {
+  left: 100%;
 }
 
 .backButton:hover {
-  background-color: #b89569;
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, #b38d5e, #a67c4e);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(201, 167, 124, 0.5);
+  letter-spacing: 1px;
 }
 
 /* Made with Badge */
@@ -300,16 +396,17 @@
 /* Hero Section */
 .heroSection {
   position: relative;
-  height: 70vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   overflow: hidden;
   background-image: url("/girl.jpg");
   background-size: cover;
   background-position: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
 }
 
 /* Remove the dark overlay */
@@ -321,16 +418,22 @@
   text-align: center;
   z-index: 2;
   animation: fadeIn 1.5s ease;
-  padding: 40px;
-  border-radius: 5px;
+  padding: 60px;
+  border-radius: 10px;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0.05)
   );
-  backdrop-filter: blur(5px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: perspective(1000px) rotateX(2deg);
+  transition: all 0.5s ease;
+}
+
+.heroContent:hover {
+  transform: perspective(1000px) rotateX(0deg) scale(1.02);
 }
 
 .logoContainer {
@@ -341,16 +444,22 @@
 
 .logo {
   font-family: "Playfair Display", serif;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: white;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  padding: 10px 30px;
+  letter-spacing: 6px;
+  padding: 15px 40px;
   display: inline-block;
   position: relative;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
   animation: glow 3s infinite alternate;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
 }
 
 .logo::before {
@@ -379,13 +488,18 @@
 
 .heroTitle {
   font-family: "Playfair Display", serif;
-  font-size: 6rem;
+  font-size: 7rem;
   font-weight: 400;
   color: white;
   margin: 0;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   animation: float 6s ease-in-out infinite;
+  background: linear-gradient(90deg, #ffffff, #e2c9a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: textShine 5s linear infinite;
 }
 
 @keyframes glow {
@@ -408,6 +522,12 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200% center;
   }
 }
 
@@ -440,18 +560,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.95),
-    rgba(255, 255, 255, 0.85)
-  );
-  border-radius: 20px;
+      135deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/treee.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.8);
   transform: perspective(1000px) rotateX(2deg);
+  transition: all 0.8s ease;
+}
+
+.specialtySection:hover {
+  transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
 }
 
 .specialtySection::after {
@@ -460,47 +589,48 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 5px;
+  height: 8px;
   background: linear-gradient(90deg, #c9a77c, #e2c9a6, #c9a77c);
   z-index: 3;
+  animation: gradientMove 8s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .specialtyContent {
   flex: 1;
-  padding: 70px;
+  padding: 80px;
   position: relative;
   z-index: 2;
 }
 
 .specialtyTitle {
   font-family: "Playfair Display", serif;
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 400;
   color: #a67c4e;
-  margin: 0 0 25px 0;
+  margin: 0 0 30px 0;
   position: relative;
   display: inline-block;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
 }
 
-.specialtyTitle::after {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, #c9a77c, transparent);
-  bottom: -12px;
-  left: 0;
-}
-
-.specialtyTitle::before {
-  content: "";
-  position: absolute;
-  font-size: 8rem;
-  color: rgba(201, 167, 124, 0.1);
-  top: -60px;
-  left: -40px;
-  font-family: serif;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .specialtyDescription {
@@ -510,51 +640,36 @@
   margin-bottom: 35px;
   max-width: 90%;
   position: relative;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .specialtyButton {
   display: inline-block;
-  padding: 14px 35px;
+  padding: 16px 40px;
   background: linear-gradient(135deg, #c9a77c, #b38d5e);
   color: white;
   font-family: "Playfair Display", serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.4s ease;
-  box-shadow: 0 8px 20px rgba(201, 167, 124, 0.4);
+  box-shadow: 0 10px 25px rgba(201, 167, 124, 0.5);
   position: relative;
   overflow: hidden;
   z-index: 1;
+  animation: pulse 2s infinite;
 }
 
-.specialtyButton::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: all 0.6s ease;
-  z-index: -1;
-}
-
-.specialtyButton:hover {
-  background: linear-gradient(135deg, #b38d5e, #a67c4e);
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(201, 167, 124, 0.5);
-  letter-spacing: 1px;
-}
-
-.specialtyButton:hover::before {
-  left: 100%;
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(201, 167, 124, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(201, 167, 124, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(201, 167, 124, 0);
+  }
 }
 
 .specialtyImageContainer {
@@ -643,5 +758,201 @@
 
   .specialtyImageContainer {
     height: 300px;
+  }
+}
+
+/* Private Dining Section */
+.privateDiningSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/treee.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: perspective(1000px) rotateX(-2deg);
+  transition: all 0.8s ease;
+}
+
+.privateDiningSection:hover {
+  transform: perspective(1000px) rotateX(0deg) translateY(-10px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+}
+
+.privateDiningSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #c9a77c, #e2c9a6, #c9a77c);
+  z-index: 3;
+  animation: gradientMove 8s linear infinite;
+  background-size: 200% auto;
+}
+
+.privateDiningContent {
+  flex: 1.2;
+  padding: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.privateDiningTitle {
+  font-family: "Playfair Display", serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: #a67c4e;
+  margin: 0 0 25px 0;
+  position: relative;
+  display: inline-block;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
+}
+
+.privateDiningDescription {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 95%;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.privateDiningButton {
+  display: inline-block;
+  padding: 14px 35px;
+  background: linear-gradient(135deg, #c9a77c, #b38d5e);
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(201, 167, 124, 0.5);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+.privateDiningButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.privateDiningButton:hover::before {
+  left: 100%;
+}
+
+.privateDiningButton:hover {
+  background: linear-gradient(135deg, #b38d5e, #a67c4e);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(201, 167, 124, 0.5);
+}
+
+.privateDiningImageContainer {
+  flex: 0.8;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.privateDiningImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease, filter 0.5s ease;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.privateDiningSection:hover .privateDiningImage {
+  transform: scale(1.05);
+}
+
+/* Add decorative elements */
+.privateDiningSection::before {
+  content: "✦";
+  position: absolute;
+  font-size: 15rem;
+  color: rgba(201, 167, 124, 0.03);
+  bottom: -50px;
+  right: 30px;
+  z-index: 1;
+  transform: rotate(10deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .privateDiningSection {
+    flex-direction: column;
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  .privateDiningContent {
+    padding: 40px;
+    order: 2;
+  }
+
+  .privateDiningImageContainer {
+    width: 100%;
+    height: 350px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    order: 1;
+  }
+
+  .privateDiningTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .privateDiningContent {
+    padding: 30px;
+  }
+
+  .privateDiningTitle {
+    font-size: 2rem;
+  }
+
+  .privateDiningDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .privateDiningButton {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .privateDiningImageContainer {
+    height: 250px;
   }
 }

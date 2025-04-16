@@ -96,6 +96,33 @@ function MenuContent() {
         </Link>
       </div>
 
+      {/* Add this after the menu navigation and before the menu content */}
+      <div className={styles.privateDiningSection}>
+        <div className={styles.privateDiningImageContainer}>
+          <Image
+            src="/coo.jpg"
+            alt="Private Dining Experience"
+            width={600}
+            height={500}
+            className={styles.privateDiningImage}
+          />
+        </div>
+        <div className={styles.privateDiningContent}>
+          <h2 className={styles.privateDiningTitle}>
+            Organize your unique event or personal dining occurrence with us
+          </h2>
+          <p className={styles.privateDiningDescription}>
+            New Wave is conveniently located in the heart of the bustling city,
+            offering an unrivalled experience of Paris in all its Garden City
+            glory. Whether you are hosting a networking event, a business
+            meeting or a birthday bash, a memorable experience awaits. Our
+            restaurants are versatile to suit your needs, and you can be assured
+            of excellent menu selections and personalised service.
+          </p>
+          <div className={styles.privateDiningButton}>ENQUIRE NOW</div>
+        </div>
+      </div>
+
       {/* Drink Menu */}
       <div
         className={`${styles.menuContent} ${
