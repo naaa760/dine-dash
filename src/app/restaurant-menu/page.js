@@ -34,6 +34,28 @@ function MenuContent() {
         </div>
       </div>
 
+      {/* Specialty Section */}
+      <div className={styles.specialtySection}>
+        <div className={styles.specialtyContent}>
+          <h2 className={styles.specialtyTitle}>Our Specialty</h2>
+          <p className={styles.specialtyDescription}>
+            Experience the perfect blend of traditional flavors and modern
+            culinary techniques. Each dish is crafted with passion and the
+            finest ingredients to create an unforgettable dining experience.
+          </p>
+          <div className={styles.specialtyButton}>Explore Our Kitchen</div>
+        </div>
+        <div className={styles.specialtyImageContainer}>
+          <Image
+            src="/dishh.jpg"
+            alt="Signature Dish"
+            width={500}
+            height={400}
+            className={styles.specialtyImage}
+          />
+        </div>
+      </div>
+
       {/* Menu Navigation */}
       <div className={styles.menuNav}>
         <Link
