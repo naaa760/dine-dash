@@ -1,0 +1,233 @@
+/* Container and Base Styles */
+.container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+
+/* Video Background */
+.videoContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+}
+
+/* Content */
+.content {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.openTimes {
+  display: flex;
+  align-items: center;
+}
+
+.openTimesButton {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-right: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logoText {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: white;
+}
+
+.reservation {
+  display: flex;
+  align-items: center;
+}
+
+.reservationLink {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.reservationIcon {
+  margin-right: 8px;
+}
+
+.menuToggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Main Text */
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* Social Media Sidebar */
+.socialSidebar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.followUs {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.socialIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.socialIcon {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+/* Awards Section */
+.awards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px 0;
+}
+
+.award {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.awardLogo {
+  margin-bottom: 5px;
+}
+
+.awardYear {
+  font-size: 0.8rem;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ratingNumber {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.stars {
+  color: gold;
+}
+
+.callUs {
+  position: relative;
+}
+
+.callButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: #333;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+/* Made with Badge */
+.madeWith {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 3rem;
+  }
+
+  .awards {
+    flex-wrap: wrap;
+  }
+
+  .socialSidebar {
+    display: none;
+  }
+}
