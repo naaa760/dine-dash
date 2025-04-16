@@ -130,7 +130,7 @@ export default function Home() {
             <div className={styles.logoText}>
               NEW
               <br />
-              WAVE
+              VIBE
             </div>
           </div>
 
