@@ -24,6 +24,16 @@ function MenuContent() {
 
   return (
     <div className={styles.menuContainer}>
+      {/* Hero Section */}
+      <div className={styles.heroSection}>
+        <div className={styles.heroContent}>
+          <div className={styles.logoContainer}>
+            <div className={styles.logo}>NEW WAVE</div>
+          </div>
+          <h1 className={styles.heroTitle}>Enjoy a Delicious</h1>
+        </div>
+      </div>
+
       {/* Menu Navigation */}
       <div className={styles.menuNav}>
         <Link
