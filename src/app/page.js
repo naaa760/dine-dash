@@ -122,6 +122,56 @@ export default function Home() {
           <span>Made in Framer</span>
         </div>
       </div>
+
+      {/* Menu Categories Section */}
+      <section className={styles.menuSection}>
+        <div className={styles.menuHeader}>
+          <div className={styles.forkKnifeIcon}>🍴</div>
+          <h2 className={styles.menuTitle}>
+            Come for our fresh, delicious fare, and stay
+            <br />
+            for a dining experience you won&apos;t forget.
+          </h2>
+        </div>
+
+        <div className={styles.menuCategories}>
+          <div className={styles.categoryCard}>
+            <div className={styles.categoryImageContainer}>
+              <Image
+                src="/fo1.jpg"
+                alt="Signature Drink"
+                fill
+                className={styles.categoryImage}
+              />
+            </div>
+            <div className={styles.categoryLabel}>Drink</div>
+          </div>
+
+          <div className={styles.categoryCard}>
+            <div className={styles.categoryImageContainer}>
+              <Image
+                src="/fo2.jpg"
+                alt="Main Course"
+                fill
+                className={styles.categoryImage}
+              />
+            </div>
+            <div className={styles.categoryLabel}>Main</div>
+          </div>
+
+          <div className={styles.categoryCard}>
+            <div className={styles.categoryImageContainer}>
+              <Image
+                src="/fo3.jpg"
+                alt="Desserts"
+                fill
+                className={styles.categoryImage}
+              />
+            </div>
+            <div className={styles.categoryLabel}>Desserts</div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
