@@ -169,26 +169,12 @@ export default function Home() {
         {/* Awards Section */}
         <div className={styles.awards}>
           <div className={styles.award}>
-            <div className={styles.awardLogo}>
-              <Image
-                src="/travelers-choice.png"
-                alt="Travelers' Choice"
-                width={50}
-                height={50}
-              />
-            </div>
-            <span className={styles.awardYear}>2023</span>
+            <div className={styles.awardLogo}></div>
+            <span className={styles.awardYear}>2025</span>
           </div>
           <div className={styles.award}>
-            <div className={styles.awardLogo}>
-              <Image
-                src="/michelin-guide.png"
-                alt="Michelin Guide"
-                width={50}
-                height={50}
-              />
-            </div>
-            <span className={styles.awardYear}>2023</span>
+            <div className={styles.awardLogo}></div>
+            <span className={styles.awardYear}>2025</span>
           </div>
           <div className={styles.award}>
             <div className={styles.rating}>
@@ -201,11 +187,6 @@ export default function Home() {
               📞
             </Link>
           </div>
-        </div>
-
-        {/* Made with Badge */}
-        <div className={styles.madeWith}>
-          <span>Made in Framer</span>
         </div>
       </div>
 
