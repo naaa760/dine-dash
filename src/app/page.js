@@ -272,7 +272,7 @@ export default function Home() {
             FLAVORS
           </h2>
           <p className={styles.exquisiteDescription}>
-            New Wave is more than just food—it's a celebration of culinary
+            New Wave is more than just food—it&apos;s a celebration of culinary
             passion, crafted from an inspiring journey.
           </p>
           <div className={styles.exquisiteButton}>LEARN MORE</div>
@@ -371,6 +371,81 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Animated Footer Section */}
+      <footer className={styles.animatedFooter}>
+        <div className={styles.footerBackground}></div>
+
+        {/* Repeating Text Animation */}
+        <div className={styles.marqueeContainer}>
+          <div className={styles.marquee}>
+            <span>CULINARY EXCELLENCE</span>
+            <span>TASTE SENSATION</span>
+            <span>CULINARY EXCELLENCE</span>
+            <span>TASTE SENSATION</span>
+          </div>
+        </div>
+
+        {/* Footer Content */}
+        <div className={styles.footerContent}>
+          <div className={styles.footerLogo}>
+            <div className={styles.logoText}>
+              NEW
+              <br />
+              WAVE
+            </div>
+          </div>
+
+          <div className={styles.footerColumns}>
+            <div className={styles.footerColumn}>
+              <h3>VISIT US</h3>
+              <p>
+                123 Gourmet Avenue
+                <br />
+                Culinary District
+                <br />
+                New York, NY 10001
+              </p>
+            </div>
+
+            <div className={styles.footerColumn}>
+              <h3>HOURS</h3>
+              <p>
+                Monday - Thursday: 11am - 10pm
+                <br />
+                Friday - Saturday: 11am - 11pm
+                <br />
+                Sunday: 11am - 9pm
+              </p>
+            </div>
+
+            <div className={styles.footerColumn}>
+              <h3>CONTACT</h3>
+              <p>
+                reservations@newwave.com
+                <br />
+                +1 (212) 555-1234
+              </p>
+              <div className={styles.footerSocial}>
+                <Link href="#" aria-label="Instagram">
+                  📷
+                </Link>
+                <Link href="#" aria-label="Facebook">
+                  📘
+                </Link>
+                <Link href="#" aria-label="Twitter">
+                  🐦
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.footerBottom}>
+            <p>© 2023 New Wave Restaurant. All rights reserved.</p>
+            <p>Made with ♥ in Framer</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
