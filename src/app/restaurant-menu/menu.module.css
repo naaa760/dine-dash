@@ -2,9 +2,25 @@
 
 .menuPage {
   min-height: 100vh;
-  background-color: #f9f6f0;
+  background-image: url("/rest.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: #333;
   padding: 40px 0;
+  position: relative;
+}
+
+/* Add an overlay to ensure text readability */
+.menuPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(249, 246, 240, 0.92);
+  z-index: 1;
 }
 
 .menuContainer {
@@ -12,6 +28,7 @@
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
+  z-index: 2;
 }
 
 /* Menu Navigation */
