@@ -175,6 +175,23 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Exquisite Flavors Section */}
+      <section className={styles.exquisiteSection}>
+        <div className={styles.exquisiteOverlay}></div>
+        <div className={styles.exquisiteContent}>
+          <h2 className={styles.exquisiteTitle}>
+            EXQUISITE
+            <br />
+            FLAVORS
+          </h2>
+          <p className={styles.exquisiteDescription}>
+            New Wave is more than just food—it's a celebration of culinary
+            passion, crafted from an inspiring journey.
+          </p>
+          <div className={styles.exquisiteButton}>LEARN MORE</div>
+        </div>
+      </section>
     </div>
   );
 }
