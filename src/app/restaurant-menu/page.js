@@ -7,7 +7,7 @@ import styles from "./menu.module.css";
 
 // Create a client component that uses useSearchParams
 function MenuContent() {
-  const [activeTab, setActiveTab] = useState("drink");
+  const [activeTab, setActiveTab] = useState("main");
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -440,7 +440,7 @@ function MenuContent() {
 
       {/* Made with Badge */}
       <div className={styles.madeWith}>
-        <span>Made in Neha</span>
+        <span>Made by Neha</span>
       </div>
     </div>
   );

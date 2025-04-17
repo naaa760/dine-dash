@@ -321,11 +321,11 @@ export default function Home() {
         </div>
 
         <div className={styles.menuCategories}>
-          <Link href="/restaurant-menu#drink" className={styles.categoryCard}>
+          <Link href="/restaurant-menu#main" className={styles.categoryCard}>
             <div className={styles.categoryImageContainer}>
               <Image
                 src="/fo1.jpg"
-                alt="Signature Drink"
+                alt="Main Courses"
                 fill
                 className={styles.categoryImage}
               />
@@ -333,11 +333,11 @@ export default function Home() {
             <div className={styles.categoryLabel}>Main</div>
           </Link>
 
-          <Link href="/restaurant-menu#main" className={styles.categoryCard}>
+          <Link href="/restaurant-menu#drink" className={styles.categoryCard}>
             <div className={styles.categoryImageContainer}>
               <Image
                 src="/fo2.jpg"
-                alt="Main Course"
+                alt="Signature Drinks"
                 fill
                 className={styles.categoryImage}
               />
