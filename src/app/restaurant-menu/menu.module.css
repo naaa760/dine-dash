@@ -1167,3 +1167,156 @@
   width: 120px;
   height: 120px;
 }
+
+/* Food Animation */
+@keyframes foodfall {
+  0% {
+    transform: translateY(-50px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) translateX(var(--x-end))
+      rotate(var(--rotation));
+    opacity: 0;
+  }
+}
+
+@keyframes foodWobble {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(10deg) scale(0.95);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(5deg) scale(0.98);
+  }
+}
+
+.foodItem {
+  position: fixed;
+  top: -30px;
+  font-size: var(--size);
+  z-index: 1000;
+  user-select: none;
+  cursor: default;
+  animation: foodfall var(--fall-duration) linear infinite,
+    foodWobble var(--wobble-duration) ease-in-out infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
+  will-change: transform;
+}
+
+/* Welcome Message Animation */
+@keyframes fadeInLetter {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.5) rotate(10deg);
+  }
+  60% {
+    transform: translateY(10px) scale(1.2) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes floatLetter {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes welcomeDisappear {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+    visibility: hidden;
+  }
+}
+
+.welcomeMessage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  animation: welcomeDisappear 1s ease-in-out forwards;
+  animation-delay: 5s;
+}
+
+.welcomeText {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 90%;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.welcomeLetter {
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeInLetter 0.5s ease-in-out forwards,
+    floatLetter 2s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-shadow: 0 0 10px rgba(201, 167, 124, 0.8);
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+.welcomeEmoji {
+  font-size: 2.5rem;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.welcomeSubtext {
+  font-family: "Playfair Display", serif;
+  color: #c9a77c;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInLetter 0.5s ease-in-out forwards;
+  animation-delay: 3s;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}

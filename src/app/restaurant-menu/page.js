@@ -5,17 +5,127 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import styles from "./menu.module.css";
 
+// Food component
+function FoodItem({ style, content }) {
+  return (
+    <div className={styles.foodItem} style={style}>
+      {content}
+    </div>
+  );
+}
+
+// Welcome Message component
+function WelcomeMessage() {
+  const welcomeText = "WELCOME TO THE MENU";
+  const foodEmojis = [
+    "🍔",
+    "🧁",
+    "🍰",
+    "🍪",
+    "🍩",
+    "🥐",
+    "🥧",
+    "🍦",
+    "🍕",
+    "🍫",
+    "🍮",
+    "🍨",
+    "🥞",
+    "🧇",
+    "🍬",
+    "🍭",
+  ];
+
+  return (
+    <div className={styles.welcomeMessage}>
+      <div className={styles.welcomeText}>
+        {welcomeText.split("").map((letter, index) => {
+          // Skip spaces in animation but keep them for display
+          if (letter === " ") {
+            return <div key={index} style={{ width: "20px" }}></div>;
+          }
+
+          // Get a random emoji for each letter
+          const randomEmoji =
+            foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
+
+          return (
+            <div
+              key={index}
+              className={styles.welcomeLetter}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className={styles.welcomeEmoji}>{randomEmoji}</div>
+              {letter}
+            </div>
+          );
+        })}
+      </div>
+      <div className={styles.welcomeSubtext}>
+        Delicious delights await you...
+      </div>
+    </div>
+  );
+}
+
 // Create a client component that uses useSearchParams
 function MenuContent() {
   const [activeTab, setActiveTab] = useState("main");
   const searchParams = useSearchParams();
+  const [foodItems, setFoodItems] = useState([]);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
+    // Hide welcome message after 6 seconds
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 6000);
+
     // Get the hash from the URL (without the #)
     const hash = window.location.hash.replace("#", "");
     if (hash) {
       setActiveTab(hash);
     }
+
+    // Create food items
+    const createFoodItems = () => {
+      const newFoodItems = [];
+      const numberOfItems = 50; // Number of food items
+      const foodTypes = ["🍔", "🧁", "🍰", "🍪", "🍩", "🥐", "🥧", "🍦"];
+
+      for (let i = 0; i < numberOfItems; i++) {
+        const delay = Math.random() * 15; // Random delay
+        const initialLeft = Math.random() * 100; // Random starting position
+        const size = Math.random() * 1 + 0.8 + "rem"; // Random size between 0.8 and 1.8rem
+        const duration = Math.random() * 15 + 10; // Fall duration between 10-25s
+        const xEnd = (Math.random() - 0.5) * 150; // Random end X position
+        const rotation = Math.random() * 360 - 180; // Random rotation
+        const wobbleDuration = Math.random() * 3 + 2; // Wobble duration
+        const foodType =
+          foodTypes[Math.floor(Math.random() * foodTypes.length)];
+
+        newFoodItems.push({
+          id: i,
+          content: foodType,
+          style: {
+            left: `${initialLeft}%`,
+            opacity: Math.random() * 0.3 + 0.7, // Higher opacity
+            animationDelay: `${delay}s`,
+            "--fall-duration": `${duration}s`,
+            "--x-end": `${xEnd}px`,
+            "--rotation": `${rotation}deg`,
+            "--size": size,
+            "--wobble-duration": `${wobbleDuration}s`,
+          },
+        });
+      }
+
+      setFoodItems(newFoodItems);
+    };
+
+    createFoodItems();
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleTabClick = (tab) => {
@@ -24,6 +134,14 @@ function MenuContent() {
 
   return (
     <div className={styles.menuContainer}>
+      {/* Welcome Message */}
+      {showWelcome && <WelcomeMessage />}
+
+      {/* Food Items */}
+      {foodItems.map((item) => (
+        <FoodItem key={item.id} style={item.style} content={item.content} />
+      ))}
+
       {/* Hero Section */}
       <div className={styles.heroSection}>
         <div className={styles.heroContent}>
