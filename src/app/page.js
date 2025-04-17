@@ -482,9 +482,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Enhanced Hero Section */}
+      {/* Enhanced Hero Section with Floating Vegetables */}
       <section className={styles.heroSection}>
         <div className={styles.heroBackground}></div>
+
+        {/* Floating Vegetable Images with larger sizes */}
+        <div className={styles.floatingVegetables}>
+          <Image
+            src="/1l.png"
+            alt="Vegetable"
+            width={350}
+            height={350}
+            className={`${styles.floatingVegetable} ${styles.vegetable1}`}
+          />
+          <Image
+            src="/2l.png"
+            alt="Vegetable"
+            width={350}
+            height={350}
+            className={`${styles.floatingVegetable} ${styles.vegetable2}`}
+          />
+          <Image
+            src="/3l.png"
+            alt="Vegetable"
+            width={350}
+            height={350}
+            className={`${styles.floatingVegetable} ${styles.vegetable3}`}
+          />
+          <Image
+            src="/4l.png"
+            alt="Vegetable"
+            width={350}
+            height={350}
+            className={`${styles.floatingVegetable} ${styles.vegetable4}`}
+          />
+          <Image
+            src="/5l.png"
+            alt="Vegetable"
+            width={350}
+            height={350}
+            className={`${styles.floatingVegetable} ${styles.vegetable5}`}
+          />
+        </div>
+
         <div className={styles.heroContent}>
           <div className={styles.heroLogo}>NEW WAVE</div>
           <h1 className={styles.heroTitle}>Culinary Excellence Redefined</h1>

@@ -2030,11 +2030,12 @@
 
 .heroContent {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   max-width: 800px;
   padding: 0 20px;
   animation: fadeInHeader 1.5s ease-out forwards;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .heroLogo {
@@ -2162,4 +2163,190 @@
   opacity: 0.8;
   cursor: pointer;
   z-index: 2;
+}
+
+/* Floating Vegetables Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-25px) rotate(8deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translateY(25px) rotate(-8deg) scale(0.95);
+  }
+}
+
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(25px) rotate(-8deg) scale(0.95);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translateY(-25px) rotate(8deg) scale(1.05);
+  }
+}
+
+@keyframes slowSpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+  }
+}
+
+.floatingVegetables {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.floatingVegetable {
+  position: absolute;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+  will-change: transform;
+  object-fit: contain;
+  transform-origin: center center;
+}
+
+/* Sparkle pseudo-elements for each vegetable */
+.floatingVegetable::before,
+.floatingVegetable::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  z-index: -1;
+  animation: sparkle 1.5s ease-out;
+  pointer-events: none;
+}
+
+.floatingVegetable::after {
+  animation-delay: 0.3s;
+  transform: scale(0.7);
+}
+
+/* Individual vegetable animations with pop-in effect */
+.vegetable1 {
+  top: 5%;
+  left: 5%;
+  width: 400px !important;
+  height: 400px !important;
+  animation: vegetablePopIn 1s ease-out forwards,
+    float 8s ease-in-out infinite 1s;
+  animation-delay: 0.2s, 1.2s;
+}
+
+.vegetable2 {
+  top: 10%;
+  right: 5%;
+  width: 420px !important;
+  height: 420px !important;
+  animation: vegetablePopIn 1s ease-out forwards,
+    floatReverse 9s ease-in-out infinite 1s;
+  animation-delay: 0.5s, 1.5s;
+}
+
+.vegetable3 {
+  bottom: 10%;
+  left: 8%;
+  width: 450px !important;
+  height: 450px !important;
+  animation: vegetablePopIn 1s ease-out forwards,
+    float 10s ease-in-out infinite 1s;
+  animation-delay: 0.8s, 1.8s;
+}
+
+.vegetable4 {
+  bottom: 15%;
+  right: 5%;
+  width: 430px !important;
+  height: 430px !important;
+  animation: vegetablePopIn 1s ease-out forwards,
+    floatReverse 11s ease-in-out infinite 1s;
+  animation-delay: 1.1s, 2.1s;
+}
+
+.vegetable5 {
+  top: 50%;
+  left: 50%;
+  width: 480px !important;
+  height: 480px !important;
+  transform: translate(-50%, -50%);
+  animation: vegetablePopIn 1s ease-out forwards,
+    slowSpin 30s linear infinite 1s;
+  animation-delay: 1.4s, 2.4s;
+  z-index: 1;
+}
+
+/* Enhanced float animations for after pop-in */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-35px) rotate(10deg) scale(1.08);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translateY(35px) rotate(-10deg) scale(0.92);
+  }
+}
+
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(35px) rotate(-10deg) scale(0.92);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translateY(-35px) rotate(10deg) scale(1.08);
+  }
+}
+
+@keyframes slowSpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.15);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+  }
 }
