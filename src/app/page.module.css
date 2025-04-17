@@ -1862,3 +1862,87 @@
     width: 20%;
   }
 }
+
+/* Add these curved wave elements to the footer */
+.footerWave {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  top: -1px;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.footerWave svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.footerWave .wave1 {
+  fill: rgba(201, 167, 124, 0.1);
+  animation: waveAnimation 15s linear infinite;
+}
+
+.footerWave .wave2 {
+  fill: rgba(201, 167, 124, 0.15);
+  animation: waveAnimation 10s linear infinite reverse;
+}
+
+.footerWave .wave3 {
+  fill: rgba(255, 255, 255, 0.05);
+  animation: waveAnimation 13s linear infinite;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Add curved separator between sections */
+.footerCurve {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  fill: rgba(201, 167, 124, 0.2);
+  z-index: 3;
+}
+
+/* Add curved decoration to the logo */
+.logoCurve {
+  position: absolute;
+  width: 120%;
+  height: 40px;
+  bottom: -20px;
+  left: -10%;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Add curved decoration to the footer columns */
+.columnCurve {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.1;
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
+.footerColumn:hover .columnCurve {
+  opacity: 0.2;
+  transform: scale(1.2);
+}

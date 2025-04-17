@@ -16,15 +16,6 @@ export default function CustomerTestimonial() {
           </h2>
 
           <div className={styles.testimonialQuote}>
-            <div className={styles.customerProfile}>
-              <Image
-                src="/customer-profile.jpg"
-                alt="Customer"
-                width={60}
-                height={60}
-                className={styles.customerImage}
-              />
-            </div>
             <div className={styles.quoteContent}>
               <p className={styles.quoteText}>
                 The elegant environment, flawless hospitality. Each meal is a

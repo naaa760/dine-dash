@@ -479,6 +479,40 @@ export default function Home() {
       <footer className={styles.animatedFooter}>
         <div className={styles.footerBackground}></div>
 
+        {/* Add curved wave at the top of footer */}
+        <div className={styles.footerWave}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              className={styles.wave1}
+              d="M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,224C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              className={styles.wave2}
+              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,197.3C960,224,1056,224,1152,202.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              className={styles.wave3}
+              d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+
         {/* Add floating particles */}
         {Array.from({ length: 20 }).map((_, index) => (
           <div
@@ -510,6 +544,18 @@ export default function Home() {
               <br />
               WAVE
             </div>
+            {/* Add curved decoration under logo */}
+            <svg
+              className={styles.logoCurve}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              preserveAspectRatio="none"
+            >
+              <path
+                fill="#c9a77c"
+                d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,133.3C672,160,768,192,864,197.3C960,203,1056,181,1152,165.3C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+              ></path>
+            </svg>
           </div>
 
           <div className={styles.footerColumns}>
@@ -522,6 +568,19 @@ export default function Home() {
                 <br />
                 Mumbai 400001
               </p>
+              {/* Add curved decoration */}
+              <svg
+                className={styles.columnCurve}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 200 200"
+                preserveAspectRatio="none"
+              >
+                <path
+                  fill="#c9a77c"
+                  d="M41.3,-51.2C52.9,-42.1,61.2,-28.5,64.9,-13.6C68.7,1.3,68,17.6,60.8,30.1C53.6,42.7,39.9,51.5,25.3,57.4C10.7,63.3,-4.9,66.3,-19.2,62.5C-33.5,58.7,-46.5,48.1,-54.8,34.7C-63.1,21.3,-66.7,5.1,-64.2,-10.1C-61.7,-25.3,-53.1,-39.5,-41.3,-48.5C-29.5,-57.5,-14.7,-61.3,0.2,-61.6C15.2,-61.8,29.7,-60.4,41.3,-51.2Z"
+                  transform="translate(100 100)"
+                />
+              </svg>
             </div>
 
             <div className={styles.footerColumn}>
@@ -533,6 +592,19 @@ export default function Home() {
                 <br />
                 Sunday: 11am - 9pm
               </p>
+              {/* Add curved decoration */}
+              <svg
+                className={styles.columnCurve}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 200 200"
+                preserveAspectRatio="none"
+              >
+                <path
+                  fill="#c9a77c"
+                  d="M47.7,-57.2C59.5,-45.9,65.8,-29.1,68.2,-12.1C70.6,4.9,69.1,22.1,60.9,35.8C52.7,49.5,37.9,59.7,21.8,65.3C5.7,70.9,-11.6,71.9,-27.4,66.5C-43.2,61.1,-57.5,49.3,-65.1,34.1C-72.7,18.9,-73.6,0.3,-68.8,-15.8C-64,-31.9,-53.5,-45.5,-40.4,-56.5C-27.3,-67.5,-11.6,-75.9,3.2,-79.7C18,-83.5,35.9,-82.7,47.7,-73.4C59.5,-64.1,71.2,-46.3,47.7,-57.2Z"
+                  transform="translate(100 100)"
+                />
+              </svg>
             </div>
 
             <div className={styles.footerColumn}>
@@ -553,6 +625,19 @@ export default function Home() {
                   🐦
                 </Link>
               </div>
+              {/* Add curved decoration */}
+              <svg
+                className={styles.columnCurve}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 200 200"
+                preserveAspectRatio="none"
+              >
+                <path
+                  fill="#c9a77c"
+                  d="M39.2,-48.1C51.8,-35.6,63.8,-24.8,67.7,-11.3C71.6,2.2,67.3,18.5,58.5,31.5C49.7,44.5,36.3,54.2,21.2,60.9C6.1,67.5,-10.7,71.1,-25.4,66.9C-40.1,62.7,-52.7,50.7,-60.9,36.2C-69.1,21.7,-72.9,4.7,-69.9,-11.1C-66.9,-26.9,-57.1,-41.5,-44.1,-53.8C-31.1,-66.1,-15.6,-76.1,-0.9,-75C13.7,-73.9,27.5,-61.7,39.2,-48.1Z"
+                  transform="translate(100 100)"
+                />
+              </svg>
             </div>
           </div>
 
@@ -560,6 +645,19 @@ export default function Home() {
             <p>© 2025 New Wave Restaurant. All rights reserved.</p>
           </div>
         </div>
+
+        {/* Add curved separator at the bottom */}
+        <svg
+          className={styles.footerCurve}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#c9a77c"
+            d="M0,224L80,213.3C160,203,320,181,480,181.3C640,181,800,203,960,197.3C1120,192,1280,160,1360,144L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
       </footer>
     </div>
   );
