@@ -1946,3 +1946,220 @@
   opacity: 0.2;
   transform: scale(1.2);
 }
+
+/* Enhanced Header Animation */
+@keyframes fadeInHeader {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes floatAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes subtleRotate {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+.heroSection {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url("/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: subtleRotate 30s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.heroBackground::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  animation: fadeInHeader 1.5s ease-out forwards;
+}
+
+.heroLogo {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block;
+}
+
+.heroLogo::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  width: 60px;
+  height: 60px;
+  background-image: url("/logo-accent.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+.heroLogo::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: -30px;
+  width: 60px;
+  height: 60px;
+  background-image: url("/logo-accent.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  opacity: 0.8;
+  animation: floatAnimation 6s ease-in-out infinite reverse;
+  animation-delay: 1s;
+}
+
+.heroTitle {
+  font-family: "Playfair Display", serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ffffff, #c9a77c, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerEffect 6s linear infinite;
+}
+
+.heroSubtitle {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: #c9a77c;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInHeader 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.heroCta {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(45deg, #c9a77c, #d4b995);
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(201, 167, 124, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInHeader 1.5s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.heroCta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(201, 167, 124, 0.6);
+}
+
+.heroCta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.heroCta:hover::before {
+  left: 100%;
+}
+
+.heroScrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2rem;
+  animation: floatAnimation 2s ease-in-out infinite;
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 2;
+}

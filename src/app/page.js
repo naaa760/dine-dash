@@ -222,6 +222,13 @@ export default function Home() {
     };
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={styles.container}>
       {/* Video Background */}
@@ -475,6 +482,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Enhanced Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.heroBackground}></div>
+        <div className={styles.heroContent}>
+          <div className={styles.heroLogo}>NEW WAVE</div>
+          <h1 className={styles.heroTitle}>Culinary Excellence Redefined</h1>
+          <p className={styles.heroSubtitle}>
+            Experience the perfect fusion of traditional flavors and modern
+            techniques in our award-winning restaurant
+          </p>
+          <Link href="/restaurant-menu" className={styles.heroCta}>
+            Explore Our Menu
+          </Link>
+        </div>
+        <div
+          className={styles.heroScrollIndicator}
+          onClick={() => scrollToSection("about")}
+        >
+          ↓
+        </div>
+      </section>
+
       {/* Animated Footer Section */}
       <footer className={styles.animatedFooter}>
         <div className={styles.footerBackground}></div>
@@ -610,7 +639,7 @@ export default function Home() {
             <div className={styles.footerColumn}>
               <h3>CONTACT</h3>
               <p>
-                reservations@newwave.com
+                nehaprasad27118@gmail.com
                 <br />
                 +1 (212) 555-1234
               </p>

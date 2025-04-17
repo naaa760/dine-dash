@@ -23,7 +23,7 @@ export default function CustomerTestimonial() {
                 suggestion for those pursuing a sample of gastronomic excellence
                 within a luxurious atmosphere.
               </p>
-              <p className={styles.customerName}>-- hamus anderson</p>
+              <p className={styles.customerName}>-- Neha Prasad</p>
             </div>
           </div>
         </div>
