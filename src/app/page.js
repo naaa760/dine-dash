@@ -330,7 +330,7 @@ export default function Home() {
                 className={styles.categoryImage}
               />
             </div>
-            <div className={styles.categoryLabel}>Drink</div>
+            <div className={styles.categoryLabel}>Main</div>
           </Link>
 
           <Link href="/restaurant-menu#main" className={styles.categoryCard}>
@@ -342,7 +342,7 @@ export default function Home() {
                 className={styles.categoryImage}
               />
             </div>
-            <div className={styles.categoryLabel}>Main</div>
+            <div className={styles.categoryLabel}>Drink</div>
           </Link>
 
           <Link
