@@ -578,6 +578,197 @@
   }
 }
 
+/* Enhanced Plate Section - Fixed all plates visible */
+.enhancedPlateSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.plateCircleContainer {
+  position: relative;
+  width: 1200px;
+  height: 900px;
+  margin: 0 auto;
+  perspective: 1500px;
+}
+
+/* Updated circle rotation */
+.plateCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  animation: rotateCircle 30s linear infinite;
+  animation-play-state: paused;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotateCircle {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Fixed plate item styling to ensure visibility */
+.plateItem {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  opacity: 0; /* Start invisible */
+}
+
+/* Fixed individual plate positions */
+#centerPlate {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: plateFlip 3s forwards;
+  animation-play-state: paused;
+}
+
+#topPlate {
+  top: calc(50% - 300px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: plateFlip 3s forwards;
+  animation-play-state: paused;
+  animation-delay: 0.2s;
+}
+
+#rightPlate {
+  top: 50%;
+  left: calc(50% + 300px);
+  transform: translate(0, -50%);
+  animation: plateFlip 3s forwards;
+  animation-play-state: paused;
+  animation-delay: 0.4s;
+}
+
+#bottomPlate {
+  top: calc(50% + 300px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: plateFlip 3s forwards;
+  animation-play-state: paused;
+  animation-delay: 0.6s;
+}
+
+#leftPlate {
+  top: 50%;
+  left: calc(50% - 300px);
+  transform: translate(0, -50%);
+  animation: plateFlip 3s forwards;
+  animation-play-state: paused;
+  animation-delay: 0.8s;
+}
+
+.plateImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7));
+}
+
+/* Simplified rotation animation */
+@keyframes plateFlip {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) rotateY(0deg);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.8) rotateY(720deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0.8) rotateY(1440deg);
+  }
+}
+
+/* Food confetti container */
+.foodConfettiContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  z-index: 20;
+  opacity: 0;
+}
+
+.foodConfetti {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffcc80;
+  border-radius: 50%;
+  opacity: 0;
+  animation: confettiFly 3s ease-out infinite;
+  animation-play-state: paused;
+}
+
+@keyframes confettiFly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x, 100px), var(--y, 100px))
+      rotate(var(--r, 360deg));
+  }
+}
+
+/* Food confetti types */
+.burgerConfetti {
+  background-color: #ffcc80;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.9);
+}
+
+.pizzaConfetti {
+  background-color: #ffab91;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.9);
+}
+
+.muffinConfetti {
+  background-color: #a1887f;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 0 15px rgba(121, 85, 72, 0.9);
+}
+
+.donutConfetti {
+  background-color: #f48fb1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #f48fb1, 0 0 0 10px #000,
+    0 0 15px rgba(244, 143, 177, 0.9);
+}
+
+.friesConfetti {
+  background-color: #ffd54f;
+  width: 10px !important;
+  height: 30px !important;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(255, 213, 79, 0.9);
+}
+
 /* Enhanced Exquisite Flavors Section */
 .exquisiteSection {
   position: relative;
@@ -1519,3 +1710,245 @@
 
 /* Import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+/* Simple Plate Section */
+.simplePlateSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.simplePlateGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.simplePlateItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.simplePlateItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.simplePlateImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Flower Pattern Plate Section */
+.flowerPlateSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.flowerContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  margin: 0 auto 60px;
+}
+
+.flowerItem {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  transition: all 0.5s ease;
+  animation: flowerItemAppear 1s ease-out forwards;
+  opacity: 0;
+}
+
+.flowerItem:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.flowerItem:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.flowerItem:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.flowerItem:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.flowerItem:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  z-index: 6;
+}
+
+.flowerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+  transition: all 0.5s ease;
+}
+
+@keyframes flowerItemAppear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5) rotate(45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+
+.confettiCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  z-index: 4;
+}
+
+.confetti {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #c9a77c;
+  opacity: 0;
+  animation: confettiFountain 4s ease-out infinite;
+  border-radius: 2px;
+}
+
+.confetti:nth-child(even) {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+}
+
+.confetti:nth-child(3n) {
+  background-color: #e2c9a6;
+  width: 12px;
+  height: 12px;
+}
+
+.confetti:nth-child(5n) {
+  background-color: #f5e6c9;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.confetti:nth-child(7n) {
+  background-color: #d4af37;
+  width: 7px;
+  height: 14px;
+}
+
+@keyframes confettiFountain {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--x, 0) * 1px), calc(var(--y, 0) * 1px))
+      rotate(calc(var(--r, 0) * 1deg));
+  }
+}
+
+/* Initialize confetti in JavaScript */
+
+/* Add these additional keyframes */
+@keyframes moveToTop {
+  to {
+    transform: translate(-50%, -200%) scale(0.7) rotateY(1440deg);
+  }
+}
+
+@keyframes moveToRight {
+  to {
+    transform: translate(100%, -50%) scale(0.7) rotateY(1440deg);
+  }
+}
+
+@keyframes moveToBottom {
+  to {
+    transform: translate(-50%, 100%) scale(0.7) rotateY(1440deg);
+  }
+}
+
+@keyframes moveToLeft {
+  to {
+    transform: translate(-200%, -50%) scale(0.7) rotateY(1440deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Enhanced burger confetti */
+.burgerConfetti {
+  background-color: #ffcc80;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.7);
+}
+
+/* Enhanced pizza confetti */
+.pizzaConfetti {
+  background-color: #ffab91;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+}
+
+/* Enhanced muffin confetti */
+.muffinConfetti {
+  background-color: #a1887f;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 0 10px rgba(121, 85, 72, 0.7);
+}
+
+/* Enhanced donut confetti */
+.donutConfetti {
+  background-color: #f48fb1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #f48fb1, 0 0 0 10px #000,
+    0 0 10px rgba(244, 143, 177, 0.7);
+}
