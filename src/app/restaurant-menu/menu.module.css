@@ -176,6 +176,7 @@
 .menuItem {
   margin-bottom: 40px;
   position: relative;
+  cursor: pointer;
 }
 
 .menuItemHeader {
@@ -955,4 +956,88 @@
   .privateDiningImageContainer {
     height: 250px;
   }
+}
+
+/* Hover preview image styles */
+.menuItem {
+  position: relative;
+  cursor: pointer;
+}
+
+.previewImage {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  pointer-events: none;
+  border: 2px solid #c9a77c;
+}
+
+/* Position for the first dessert image */
+.durianPuff:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}
+
+/* Position for the second dessert image */
+.eggTart:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}
+
+/* Position for the third dessert image */
+.matchaCheesecake:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}
+
+/* Position for the fourth dessert image */
+.chocolateSouffle:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}
+
+/* Add a subtle glow effect on hover */
+.menuItem:hover .itemName {
+  color: #c9a77c;
+  text-shadow: 0 0 5px rgba(201, 167, 124, 0.3);
+}
+
+/* Add a subtle animation to the preview images */
+@keyframes floatImage {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+.previewImage {
+  animation: floatImage 3s ease-in-out infinite;
 }

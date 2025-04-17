@@ -254,7 +254,7 @@ function MenuContent() {
         <div className={styles.menuSection}>
           <div className={styles.menuSideLabel}>Desserts</div>
           <div className={styles.menuItems}>
-            <div className={styles.menuItem}>
+            <div className={`${styles.menuItem} ${styles.durianPuff}`}>
               <div className={styles.menuItemHeader}>
                 <h3 className={styles.menuItemName}>
                   Mao Shan Wang Durian Puff
@@ -264,21 +264,17 @@ function MenuContent() {
               <p className={styles.menuItemDescription}>
                 Choux Pastry, Mao Shan Wang Durian Mousse
               </p>
-            </div>
-
-            <div className={styles.menuItem}>
-              <div className={styles.menuItemHeader}>
-                <h3 className={styles.menuItemName}>
-                  Deep Fried Egg White Souffle
-                </h3>
-                <div className={styles.menuItemPrice}>$14</div>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/cak1.jpg"
+                  alt="Mao Shan Wang Durian Puff"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
               </div>
-              <p className={styles.menuItemDescription}>
-                Red Bean Paste, Bananas
-              </p>
             </div>
 
-            <div className={styles.menuItem}>
+            <div className={`${styles.menuItem} ${styles.eggTart}`}>
               <div className={styles.menuItemHeader}>
                 <h3 className={styles.menuItemName}>
                   Bird&apos;s Nest Egg Tart
@@ -286,16 +282,52 @@ function MenuContent() {
                 <div className={styles.menuItemPrice}>$16</div>
               </div>
               <p className={styles.menuItemDescription}>Baked Custard</p>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/cak2.jpg"
+                  alt="Bird's Nest Egg Tart"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </div>
 
-            <div className={styles.menuItem}>
+            <div className={`${styles.menuItem} ${styles.matchaCheesecake}`}>
               <div className={styles.menuItemHeader}>
-                <h3 className={styles.menuItemName}>Martinez</h3>
+                <h3 className={styles.menuItemName}>
+                  Matcha Green Tea Cheesecake
+                </h3>
                 <div className={styles.menuItemPrice}>$18</div>
               </div>
               <p className={styles.menuItemDescription}>
-                Lemongrass, Fruit Cocktail
+                Azuki Red Bean, White Chocolate Ganache
               </p>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/cak3.jpg"
+                  alt="Matcha Green Tea Cheesecake"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </div>
+
+            <div className={`${styles.menuItem} ${styles.chocolateSouffle}`}>
+              <div className={styles.menuItemHeader}>
+                <h3 className={styles.menuItemName}>Chocolate Soufflé</h3>
+                <div className={styles.menuItemPrice}>$20</div>
+              </div>
+              <p className={styles.menuItemDescription}>
+                Valrhona Chocolate, Vanilla Bean Ice Cream
+              </p>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/cak4.jpg"
+                  alt="Chocolate Soufflé"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </div>
           </div>
           <div className={styles.menuImage}>
