@@ -1041,3 +1041,44 @@
 .previewImage {
   animation: floatImage 3s ease-in-out infinite;
 }
+
+/* Position for main menu images */
+.beefWellington:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}
+
+.lobsterThermidor:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}
+
+.duckConfit:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}
+
+.seaBass:hover .previewImage {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  top: -80px;
+  right: -100px;
+  width: 120px;
+  height: 120px;
+}

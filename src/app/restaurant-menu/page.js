@@ -194,48 +194,76 @@ function MenuContent() {
         <div className={styles.menuSection}>
           <div className={styles.menuSideLabel}>Main</div>
           <div className={styles.menuItems}>
-            <div className={styles.menuItem}>
+            <div className={`${styles.menuItem} ${styles.beefWellington}`}>
               <div className={styles.menuItemHeader}>
-                <h3 className={styles.menuItemName}>
-                  Wok Fried Lobster Mapo Tofu
-                </h3>
-                <div className={styles.menuItemPrice}>$45</div>
+                <h3 className={styles.menuItemName}>Beef Wellington</h3>
+                <div className={styles.menuItemPrice}>$58</div>
               </div>
               <p className={styles.menuItemDescription}>
-                Spring Onions, Hot Bean Sauce
+                Foie Gras, Mushroom Duxelles, Red Wine Jus
               </p>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/ma1.jpg"
+                  alt="Beef Wellington"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </div>
 
-            <div className={styles.menuItem}>
+            <div className={`${styles.menuItem} ${styles.lobsterThermidor}`}>
               <div className={styles.menuItemHeader}>
-                <h3 className={styles.menuItemName}>Pan Seared Black Cod</h3>
-                <div className={styles.menuItemPrice}>$49</div>
+                <h3 className={styles.menuItemName}>Lobster Thermidor</h3>
+                <div className={styles.menuItemPrice}>$68</div>
               </div>
               <p className={styles.menuItemDescription}>
-                Wild Mushrooms, Foie Gras Sauce
+                Brandy Cream Sauce, Gruyère Cheese, Mustard
               </p>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/ma2.jpg"
+                  alt="Lobster Thermidor"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </div>
 
-            <div className={styles.menuItem}>
+            <div className={`${styles.menuItem} ${styles.duckConfit}`}>
               <div className={styles.menuItemHeader}>
-                <h3 className={styles.menuItemName}>Seafood Fried Rice</h3>
-                <div className={styles.menuItemPrice}>$25</div>
+                <h3 className={styles.menuItemName}>Duck Confit</h3>
+                <div className={styles.menuItemPrice}>$42</div>
               </div>
               <p className={styles.menuItemDescription}>
-                Shrimp, Scallops, Crab Roe
+                Crispy Skin, Orange Gastrique, Pomme Purée
               </p>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/ma3.jpg"
+                  alt="Duck Confit"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </div>
 
-            <div className={styles.menuItem}>
+            <div className={`${styles.menuItem} ${styles.seaBass}`}>
               <div className={styles.menuItemHeader}>
-                <h3 className={styles.menuItemName}>
-                  Canadian Clams with Garlic Millet Pepper
-                </h3>
-                <div className={styles.menuItemPrice}>$22</div>
+                <h3 className={styles.menuItemName}>Pan-Seared Sea Bass</h3>
+                <div className={styles.menuItemPrice}>$46</div>
               </div>
               <p className={styles.menuItemDescription}>
-                Chinese Parsley, Chillies, White Pepper Sauce
+                Saffron Risotto, Fennel Confit, Champagne Beurre Blanc
               </p>
+              <div className={styles.previewImage}>
+                <Image
+                  src="/ma4.jpg"
+                  alt="Pan-Seared Sea Bass"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
             </div>
           </div>
           <div className={styles.menuImage}>
