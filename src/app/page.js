@@ -3,12 +3,12 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import CustomerTestimonial from "@/components/CustomerTestimonial";
 
 export default function Home() {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    // Video autoplay
     if (videoRef.current) {
       videoRef.current.play().catch((error) => {
         console.log("Auto-play was prevented:", error);
@@ -362,6 +362,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Customer Testimonial Section */}
+      <CustomerTestimonial />
+
       {/* Exquisite Flavors Section */}
       <section className={styles.exquisiteSection}>
         <div className={styles.exquisiteOverlay}></div>
@@ -475,6 +478,19 @@ export default function Home() {
       {/* Animated Footer Section */}
       <footer className={styles.animatedFooter}>
         <div className={styles.footerBackground}></div>
+
+        {/* Add floating particles */}
+        {Array.from({ length: 20 }).map((_, index) => (
+          <div
+            key={index}
+            className={styles.footerParticle}
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 15}s`,
+              "--x": `${(Math.random() - 0.5) * 100}px`,
+            }}
+          ></div>
+        ))}
 
         {/* Repeating Text Animation */}
         <div className={styles.marqueeContainer}>

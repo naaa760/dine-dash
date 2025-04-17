@@ -1,0 +1,163 @@
+.testimonialSection {
+  background-color: #001810;
+  color: #fff;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 24, 16, 0.92),
+      rgba(0, 24, 16, 0.88)
+    ),
+    url("/pe.png");
+  background-size: 300px;
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.testimonialSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    rgba(201, 167, 124, 0.1) 2px,
+    transparent 2px
+  );
+  background-size: 30px 30px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.testimonialContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .testimonialContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .testimonialContent {
+    flex: 1;
+    padding-right: 4rem;
+    max-width: 50%;
+  }
+
+  .foodImagesGrid {
+    flex: 1;
+  }
+}
+
+.testimonialHeading {
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.testimonialTitle {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  color: #e6c78b;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.testimonialQuote {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.customerProfile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.customerImage {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.quoteContent {
+  flex: 1;
+}
+
+.quoteText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #f0f0f0;
+}
+
+.customerName {
+  font-style: italic;
+  color: #e6c78b;
+  margin-top: 1rem;
+}
+
+.foodImagesGrid {
+  position: relative;
+  height: 550px;
+  width: 100%;
+}
+
+.foodImageWrapper1,
+.foodImageWrapper2,
+.foodImageWrapper3 {
+  position: absolute;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.foodImageWrapper1 {
+  width: 70%;
+  height: 70%;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.foodImageWrapper2 {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 0;
+  z-index: 2;
+}
+
+.foodImageWrapper3 {
+  width: 65%;
+  height: 65%;
+  bottom: 0;
+  right: 15%;
+  z-index: 1;
+}
+
+.foodImageWrapper1:hover,
+.foodImageWrapper2:hover,
+.foodImageWrapper3:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.foodImage {
+  object-fit: cover;
+}
