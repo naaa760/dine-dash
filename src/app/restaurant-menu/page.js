@@ -440,7 +440,7 @@ function MenuContent() {
 
       {/* Made with Badge */}
       <div className={styles.madeWith}>
-        <span>Made in Framer</span>
+        <span>Made in Neha</span>
       </div>
     </div>
   );
