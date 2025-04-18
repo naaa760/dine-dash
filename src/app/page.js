@@ -238,8 +238,13 @@ export default function Home() {
           </div>
 
           <div className={styles.reservation}>
+            <Link href="/restaurant-menu" className={styles.menuLink}>
+              <span className={styles.menuIcon}>🍽️</span>
+              Menu
+            </Link>
             <Link href="/reservation" className={styles.reservationLink}>
-              <span className={styles.reservationIcon}>🔔</span> RESERVATION
+              <span className={styles.reservationIcon}>🔔</span>
+              RESERVATION
             </Link>
             <button className={styles.menuToggle}>☰</button>
           </div>
