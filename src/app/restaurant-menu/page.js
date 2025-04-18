@@ -68,7 +68,6 @@ function WelcomeMessage() {
   );
 }
 
-// Create a client component that uses useSearchParams
 function MenuContent() {
   const [activeTab, setActiveTab] = useState("main");
   const searchParams = useSearchParams();
@@ -76,31 +75,28 @@ function MenuContent() {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
-    // Hide welcome message after 6 seconds
     const timer = setTimeout(() => {
       setShowWelcome(false);
     }, 6000);
 
-    // Get the hash from the URL (without the #)
     const hash = window.location.hash.replace("#", "");
     if (hash) {
       setActiveTab(hash);
     }
 
-    // Create food items
     const createFoodItems = () => {
       const newFoodItems = [];
-      const numberOfItems = 50; // Number of food items
+      const numberOfItems = 50;
       const foodTypes = ["🍔", "🧁", "🍰", "🍪", "🍩", "🥐", "🥧", "🍦"];
 
       for (let i = 0; i < numberOfItems; i++) {
-        const delay = Math.random() * 15; // Random delay
-        const initialLeft = Math.random() * 100; // Random starting position
-        const size = Math.random() * 1 + 0.8 + "rem"; // Random size between 0.8 and 1.8rem
-        const duration = Math.random() * 15 + 10; // Fall duration between 10-25s
-        const xEnd = (Math.random() - 0.5) * 150; // Random end X position
-        const rotation = Math.random() * 360 - 180; // Random rotation
-        const wobbleDuration = Math.random() * 3 + 2; // Wobble duration
+        const delay = Math.random() * 15;
+        const initialLeft = Math.random() * 100;
+        const size = Math.random() * 1 + 0.8 + "rem";
+        const duration = Math.random() * 15 + 10;
+        const xEnd = (Math.random() - 0.5) * 150;
+        const rotation = Math.random() * 360 - 180;
+        const wobbleDuration = Math.random() * 3 + 2;
         const foodType =
           foodTypes[Math.floor(Math.random() * foodTypes.length)];
 
@@ -134,7 +130,6 @@ function MenuContent() {
 
   return (
     <div className={styles.menuContainer}>
-      {/* Welcome Message */}
       {showWelcome && <WelcomeMessage />}
 
       {/* Food Items */}
@@ -152,7 +147,6 @@ function MenuContent() {
         </div>
       </div>
 
-      {/* Specialty Section */}
       <div className={styles.specialtySection}>
         <div className={styles.specialtyContent}>
           <h2 className={styles.specialtyTitle}>Our Specialty</h2>
@@ -174,7 +168,6 @@ function MenuContent() {
         </div>
       </div>
 
-      {/* Menu Navigation */}
       <div className={styles.menuNav}>
         <Link
           href="#drink"
@@ -214,7 +207,6 @@ function MenuContent() {
         </Link>
       </div>
 
-      {/* Add this after the menu navigation and before the menu content */}
       <div className={styles.privateDiningSection}>
         <div className={styles.privateDiningImageContainer}>
           <Image
@@ -241,7 +233,6 @@ function MenuContent() {
         </div>
       </div>
 
-      {/* Drink Menu */}
       <div
         className={`${styles.menuContent} ${
           activeTab === "drink" ? styles.active : ""
@@ -569,7 +560,6 @@ function MenuLoading() {
   return <div className={styles.loading}>Loading menu...</div>;
 }
 
-// Main page component with Suspense
 export default function RestaurantMenu() {
   return (
     <div className={styles.menuPage}>
