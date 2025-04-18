@@ -15,23 +15,20 @@ export default function Home() {
       });
     }
 
-    // Initialize food confetti
     const initFoodConfetti = () => {
       const foodConfetti = document.querySelectorAll(`.${styles.foodConfetti}`);
       foodConfetti.forEach((particle) => {
-        // Create a more dramatic, fountain-like pattern
-        const angle = Math.random() * Math.PI * 2; // Random direction
-        const distance = 100 + Math.random() * 400; // Random distance
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 100 + Math.random() * 400;
 
         // Calculate x and y with a upward bias for fountain effect
-        const upwardBias = Math.random() * 0.8 + 0.2; // 0.2 to 1.0
+        const upwardBias = Math.random() * 0.8 + 0.2;
         const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance * upwardBias * -1; // Negative to go upward
+        const y = Math.sin(angle) * distance * upwardBias * -1;
 
         // More dramatic rotation
-        const r = Math.random() * 1080; // Up to 3 full rotations
+        const r = Math.random() * 1080;
 
-        // Apply properties
         particle.style.setProperty("--x", x);
         particle.style.setProperty("--y", y);
         particle.style.setProperty("--r", r);
@@ -42,9 +39,7 @@ export default function Home() {
       });
     };
 
-    // Combined scroll handler for all animations
     const handleScroll = () => {
-      // Gallery section animation
       const gallerySection = document.querySelector(
         `.${styles.immersiveGallery}`
       );
@@ -52,26 +47,22 @@ export default function Home() {
         const sectionTop = gallerySection.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        // Start animation when the section is 20% in view
         if (sectionTop < windowHeight * 0.8) {
           gallerySection.classList.add("animate");
         } else {
           gallerySection.classList.remove("animate");
         }
 
-        // Calculate scroll progress within the section
         const sectionHeight = gallerySection.offsetHeight;
         const scrollPosition = window.scrollY;
         const sectionOffset = gallerySection.offsetTop;
         const scrollProgress = (scrollPosition - sectionOffset) / sectionHeight;
 
-        // Apply different transformations based on scroll progress
         if (scrollProgress >= 0 && scrollProgress <= 1) {
           const images = document.querySelectorAll(`.${styles.galleryImage}`);
 
           images.forEach((image, index) => {
-            // Customize the movement for each image
-            const delay = index * 0.1; // Stagger the animations
+            const delay = index * 0.1;
             const progress = Math.max(
               0,
               Math.min(1, (scrollProgress - delay) * 2)
@@ -119,15 +110,12 @@ export default function Home() {
         }
       }
 
-      // Animated plate section
       const plateSection = document.getElementById("animatedPlateSection");
       if (plateSection) {
         const plateSectionTop = plateSection.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        // Start animation when the section is 20% in view
         if (plateSectionTop < windowHeight * 0.8) {
-          // Start plate animations
           const plate1 = document.getElementById("plate1");
           const plate2 = document.getElementById("plate2");
           const plate3 = document.getElementById("plate3");
@@ -138,18 +126,15 @@ export default function Home() {
           if (plate3) plate3.style.animationPlayState = "running";
           if (plate4) plate4.style.animationPlayState = "running";
 
-          // Start confetti animation
           const confettiContainer = document.querySelector(
             `.${styles.confettiContainer}`
           );
           if (confettiContainer)
             confettiContainer.style.animationPlayState = "running";
 
-          // Start text animation
           const plateText = document.querySelector(`.${styles.plateText}`);
           if (plateText) plateText.style.animationPlayState = "running";
 
-          // Start confetti particles animation
           const confetti = document.querySelectorAll(`.${styles.confetti}`);
           confetti.forEach((particle) => {
             particle.style.animationPlayState = "running";
@@ -157,7 +142,6 @@ export default function Home() {
         }
       }
 
-      // Enhanced plate section
       const enhancedPlateSection = document.getElementById(
         "enhancedPlateSection"
       );
@@ -168,28 +152,23 @@ export default function Home() {
         if (sectionTop < windowHeight * 0.8) {
           console.log("Starting enhanced plate animations");
 
-          // Start all plate animations
           const centerPlate = document.getElementById("centerPlate");
           const topPlate = document.getElementById("topPlate");
           const rightPlate = document.getElementById("rightPlate");
           const bottomPlate = document.getElementById("bottomPlate");
           const leftPlate = document.getElementById("leftPlate");
 
-          // Make plates visible and start animations
           if (centerPlate) centerPlate.style.animationPlayState = "running";
           if (topPlate) topPlate.style.animationPlayState = "running";
           if (rightPlate) rightPlate.style.animationPlayState = "running";
           if (bottomPlate) bottomPlate.style.animationPlayState = "running";
           if (leftPlate) leftPlate.style.animationPlayState = "running";
 
-          // Start the plate circle rotation
           const plateCircle = document.querySelector(`.${styles.plateCircle}`);
           if (plateCircle) plateCircle.style.animationPlayState = "running";
 
-          // Initialize confetti with a delay
           initFoodConfetti();
 
-          // Start confetti animation after plates are positioned
           setTimeout(() => {
             const foodConfettiContainer = document.querySelector(
               `.${styles.foodConfettiContainer}`
@@ -205,16 +184,15 @@ export default function Home() {
             foodConfetti.forEach((particle) => {
               particle.style.animationPlayState = "running";
             });
-          }, 2000); // 2 second delay for confetti to start
+          }, 2000);
         }
       }
     };
 
-    // Initialize animations
     initFoodConfetti();
 
     window.addEventListener("scroll", handleScroll);
-    // Trigger once on load
+
     handleScroll();
 
     return () => {
@@ -231,7 +209,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* Video Background */}
       <div className={styles.videoContainer}>
         <video
           ref={videoRef}
@@ -245,9 +222,7 @@ export default function Home() {
         </video>
       </div>
 
-      {/* Main Content */}
       <div className={styles.content}>
-        {/* Header */}
         <header className={styles.header}>
           <div className={styles.openTimes}>
             <button className={styles.openTimesButton}>OPEN TIMES</button>
@@ -270,7 +245,6 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Main Text */}
         <main className={styles.main}>
           <p className={styles.tagline}>
             Cuisine you&apos;ll crave, in a ambiance you&apos;ll admire
@@ -278,7 +252,6 @@ export default function Home() {
           <h1 className={styles.heading}>Good Times, Great Tastes</h1>
         </main>
 
-        {/* Social Media Sidebar */}
         <div className={styles.socialSidebar}>
           <div className={styles.followUs}>FOLLOW US</div>
           <div className={styles.socialIcons}>
@@ -294,7 +267,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Awards Section */}
         <div className={styles.awards}>
           <div className={styles.award}>
             <div className={styles.awardLogo}></div>
@@ -316,7 +288,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Menu Categories Section */}
       <section className={styles.menuSection}>
         <div className={styles.menuHeader}>
           <div className={styles.forkKnifeIcon}>🍴</div>
@@ -389,7 +360,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Immersive Gallery Section */}
+      {/* Gallery Section */}
       <section className={styles.immersiveGallery}>
         <div className={styles.galleryContainer}>
           <div className={styles.galleryHeading}>
@@ -482,7 +453,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Enhanced Hero Section with Floating Vegetables */}
+      {/* Hero Section with Floating Vegetables */}
       <section className={styles.heroSection}>
         <div className={styles.heroBackground}></div>
 
@@ -544,11 +515,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Animated Footer Section */}
+      {/* Footer Section */}
       <footer className={styles.animatedFooter}>
         <div className={styles.footerBackground}></div>
 
-        {/* Add curved wave at the top of footer */}
         <div className={styles.footerWave}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -595,7 +565,6 @@ export default function Home() {
           ></div>
         ))}
 
-        {/* Repeating Text Animation */}
         <div className={styles.marqueeContainer}>
           <div className={styles.marquee}>
             <span>CULINARY EXCELLENCE</span>
@@ -613,7 +582,7 @@ export default function Home() {
               <br />
               WAVE
             </div>
-            {/* Add curved decoration under logo */}
+
             <svg
               className={styles.logoCurve}
               xmlns="http://www.w3.org/2000/svg"
@@ -637,7 +606,7 @@ export default function Home() {
                 <br />
                 Mumbai 400001
               </p>
-              {/* Add curved decoration */}
+
               <svg
                 className={styles.columnCurve}
                 xmlns="http://www.w3.org/2000/svg"
@@ -661,7 +630,7 @@ export default function Home() {
                 <br />
                 Sunday: 11am - 9pm
               </p>
-              {/* Add curved decoration */}
+
               <svg
                 className={styles.columnCurve}
                 xmlns="http://www.w3.org/2000/svg"
@@ -694,7 +663,7 @@ export default function Home() {
                   🐦
                 </Link>
               </div>
-              {/* Add curved decoration */}
+
               <svg
                 className={styles.columnCurve}
                 xmlns="http://www.w3.org/2000/svg"
