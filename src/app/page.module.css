@@ -2381,13 +2381,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 780px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(201, 167, 124, 0.2);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(201, 167, 124, 0.4);
   position: relative;
   z-index: 10;
+  overflow: hidden;
 }
 
-/* Add this golden accent bar */
+/* Enhanced golden accent bar */
 .reservationContainer::before {
   content: "";
   position: absolute;
@@ -2397,18 +2398,41 @@
   height: 100%;
   background: linear-gradient(
     to bottom,
-    transparent,
-    rgba(201, 167, 124, 0.7),
-    rgba(201, 167, 124, 0.9),
-    rgba(201, 167, 124, 0.7),
-    transparent
+    transparent 5%,
+    rgba(201, 167, 124, 0.7) 25%,
+    rgba(201, 167, 124, 0.9) 50%,
+    rgba(201, 167, 124, 0.7) 75%,
+    transparent 95%
   );
   z-index: 5;
+  filter: blur(0.5px);
+  animation: glowLine 4s ease-in-out infinite;
 }
 
+/* Add subtle animated gradient background */
+.reservationSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    125deg,
+    rgba(201, 167, 124, 0.03) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(201, 167, 124, 0.03) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 15s ease infinite;
+  z-index: 1;
+}
+
+/* Enhance image side */
 .reservationImage {
   position: relative;
   overflow: hidden;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .imageOverlay {
@@ -2419,7 +2443,7 @@
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.4),
     rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.7)
   );
@@ -2435,7 +2459,7 @@
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  filter: brightness(0.9) contrast(1.1);
+  filter: brightness(0.85) contrast(1.15) saturate(1.1);
   transform: scale(1.05);
 }
 
@@ -2450,13 +2474,13 @@
 
 .overlayText h2 {
   font-size: 4.5rem;
-  font-weight: 300;
-  letter-spacing: 0.4rem;
+  font-weight: 200;
+  letter-spacing: 0.5rem;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
   position: relative;
   display: inline-block;
   margin: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
   font-family: "Playfair Display", serif;
 }
 
@@ -2465,34 +2489,15 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 70px;
-  height: 3px;
+  width: 100px;
+  height: 2px;
   background: #c9a77c;
   transform-origin: left;
   animation: lineExpand 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   animation-delay: 0.5s;
 }
 
-@keyframes lineExpand {
-  from {
-    width: 0;
-  }
-  to {
-    width: 70px;
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Enhanced form styling */
 .reservationForm {
   background-color: rgba(0, 0, 0, 0.95);
   color: #ffffff;
@@ -2503,57 +2508,55 @@
   overflow: hidden;
 }
 
-/* Add decorative corner elements */
+/* Add elegant decorative elements */
 .reservationForm::before,
 .reservationForm::after {
   content: "";
   position: absolute;
-  width: 150px;
-  height: 150px;
-  border: 1px solid rgba(201, 167, 124, 0.3);
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(201, 167, 124, 0.1);
+  border-radius: 50%;
   pointer-events: none;
 }
 
 .reservationForm::before {
-  top: 20px;
-  right: 20px;
-  border-left: none;
-  border-bottom: none;
+  top: -150px;
+  right: -150px;
 }
 
 .reservationForm::after {
-  bottom: 20px;
-  left: 20px;
-  border-right: none;
-  border-top: none;
+  bottom: -150px;
+  left: -150px;
 }
 
 .formTitle {
-  font-size: 2.2rem;
-  font-weight: 400;
-  margin-bottom: 2.5rem;
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
   color: #c9a77c;
   letter-spacing: 0.25rem;
   text-align: center;
   position: relative;
   font-family: "Playfair Display", serif;
+  line-height: 1.2;
 }
 
 .formTitle::after {
   content: "";
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
+  width: 120px;
+  height: 1px;
   background: linear-gradient(to right, transparent, #c9a77c, transparent);
 }
 
 .bookingForm {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.2rem;
   position: relative;
   z-index: 2;
 }
@@ -2566,12 +2569,14 @@
 }
 
 .formGroup label {
-  font-size: 0.9rem;
-  letter-spacing: 0.05rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.1rem;
   color: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
   font-weight: 300;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 .formRow {
@@ -2582,9 +2587,9 @@
 
 .formInput,
 .formTextarea {
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.4rem;
   border: 1px solid rgba(201, 167, 124, 0.3);
-  border-radius: 3px;
+  border-radius: 4px;
   background-color: rgba(34, 34, 34, 0.5);
   color: white;
   font-size: 1rem;
@@ -2592,6 +2597,7 @@
   width: 100%;
   font-family: inherit;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .formInput:focus,
@@ -2600,6 +2606,7 @@
   border-color: #c9a77c;
   background-color: rgba(40, 40, 40, 0.7);
   box-shadow: 0 0 0 3px rgba(201, 167, 124, 0.2), 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 .formInput:hover,
@@ -2609,7 +2616,7 @@
 
 .formTextarea {
   resize: none;
-  min-height: 100px;
+  min-height: 110px;
 }
 
 .guestCounter {
@@ -2629,15 +2636,15 @@
 .counterBtn {
   background: rgba(201, 167, 124, 0.2);
   border: 1px solid rgba(201, 167, 124, 0.3);
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
   cursor: pointer;
   color: white;
-  border-radius: 2px;
+  border-radius: 3px;
   transition: all 0.2s ease;
   padding: 0;
   line-height: 1;
@@ -2646,10 +2653,11 @@
 .counterBtn:hover {
   background: rgba(201, 167, 124, 0.8);
   color: #000;
+  transform: translateY(-1px);
 }
 
 .reserveButton {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   padding: 1.2rem;
   background-color: #c9a77c;
   color: black;
@@ -2661,6 +2669,8 @@
   font-size: 1rem;
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  border-radius: 4px;
 }
 
 .reserveButton::before {
@@ -2673,7 +2683,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.4),
     transparent
   );
   transition: all 0.6s ease;
@@ -2689,26 +2699,84 @@
   left: 100%;
 }
 
-/* Subtle floating golden particles */
-.reservationSection::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, #c9a77c 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.05;
-  animation: particleFloat 60s linear infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes particleFloat {
+/* Add subtle shimmer to form input borders */
+@keyframes shimmer {
   0% {
-    background-position: 0 0;
+    background-position: -100% 0;
   }
   100% {
-    background-position: 50px 50px;
+    background-position: 100% 0;
+  }
+}
+
+.formInput::after,
+.formTextarea::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(201, 167, 124, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  pointer-events: none;
+  animation: shimmer 2s infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.formInput:focus::after,
+.formTextarea:focus::after {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes lineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glowLine {
+  0%,
+  100% {
+    opacity: 0.8;
+    filter: blur(0.5px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(1px);
   }
 }
 
@@ -2716,26 +2784,105 @@
 @media (max-width: 768px) {
   .reservationContainer {
     grid-template-columns: 1fr;
+    border-width: 1px 0; /* Only show horizontal borders on mobile */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
   .reservationImage {
-    min-height: 350px;
+    min-height: 280px; /* Make image section even shorter on mobile */
+    border-radius: 0;
   }
 
   .overlayText {
-    left: 2rem;
-    bottom: 2rem;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    max-width: 90%;
   }
 
   .overlayText h2 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Further reduce heading for very small screens */
+    letter-spacing: 0.3rem;
+    padding-bottom: 1rem;
   }
 
-  .formRow {
-    grid-template-columns: 1fr;
+  .overlayText h2::after {
+    width: 80px; /* Shorter line for smaller screens */
   }
 
   .reservationForm {
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.2rem; /* Further reduce padding on very small screens */
+  }
+
+  .formTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .formTitle::after {
+    width: 100px;
+    bottom: -15px;
+  }
+
+  .bookingForm {
+    gap: 1.5rem; /* Reduce spacing between form elements */
+  }
+
+  .formInput,
+  .formTextarea {
+    padding: 0.9rem 1rem; /* Smaller input padding for mobile */
+    font-size: 0.95rem;
+  }
+
+  /* Improve form controls on mobile */
+  .counterContainer {
+    height: 45px; /* Make sure the counter area is tall enough for touch */
+  }
+
+  .counterButtons {
+    right: 8px;
+  }
+
+  .counterBtn {
+    width: 28px; /* Larger touch targets for mobile */
+    height: 28px;
+  }
+
+  /* Reservations form decorations should be less visible on mobile */
+  .reservationForm::before,
+  .reservationForm::after {
+    width: 150px;
+    height: 150px;
+    opacity: 0.5;
+  }
+
+  /* Make sure date/time inputs don't overflow */
+  .formRow input {
+    width: 100%;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .overlayText h2 {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .formTitle {
+    font-size: 1.6rem;
+  }
+
+  .reservationForm {
+    padding: 1.8rem 1rem;
+  }
+
+  .formInput,
+  .formTextarea {
+    padding: 0.8rem 0.9rem;
+  }
+
+  /* Ensure guests counter has enough space */
+  .counterContainer {
+    padding-right: 40px;
   }
 }
