@@ -520,6 +520,135 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Add this section before the Footer */}
+      <section className={styles.reservationSection}>
+        <div className={styles.reservationContainer}>
+          <div className={styles.reservationImage}>
+            {/* Left side elegant restaurant video */}
+            <div className={styles.imageOverlay}></div>
+            <video
+              src="/vid2.mp4"
+              alt="Elegant restaurant interior"
+              className={styles.backgroundVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <div className={styles.overlayText}>
+              <h2>BOOK A TABLE</h2>
+            </div>
+          </div>
+
+          <div className={styles.reservationForm}>
+            <h2 className={styles.formTitle}>RESERVATION TABLE</h2>
+
+            <form className={styles.bookingForm}>
+              <div className={styles.formGroup}>
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="John Doe"
+                  className={styles.formInput}
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+1 234 567 8901"
+                  className={styles.formInput}
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="johndoe@example.com"
+                  className={styles.formInput}
+                />
+              </div>
+
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="date">Date of Reservation</label>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    className={styles.formInput}
+                  />
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="time">Time</label>
+                  <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    className={styles.formInput}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="guests">Number of Guests</label>
+                <div className={styles.guestCounter}>
+                  <input
+                    type="number"
+                    id="guests"
+                    name="guests"
+                    min="1"
+                    max="20"
+                    defaultValue="2"
+                    className={styles.formInput}
+                  />
+                  <div className={styles.counterButtons}>
+                    <button
+                      type="button"
+                      className={styles.counterBtn}
+                      aria-label="Decrease guests"
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.counterBtn}
+                      aria-label="Increase guests"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="requests">Special Requests</label>
+                <textarea
+                  id="requests"
+                  name="requests"
+                  rows="3"
+                  placeholder="Celebrating a birthday, please prepare a small dessert with a candle."
+                  className={styles.formTextarea}
+                ></textarea>
+              </div>
+
+              <button type="submit" className={styles.reserveButton}>
+                Reserve Now
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
       {/* Footer Section */}
       <footer className={styles.animatedFooter}>
         <div className={styles.footerBackground}></div>
