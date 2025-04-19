@@ -45,7 +45,6 @@ function WelcomeMessage() {
             return <div key={index} style={{ width: "20px" }}></div>;
           }
 
-          // Get a random emoji for each letter
           const randomEmoji =
             foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
 
